@@ -137,75 +137,133 @@ echo $message;
         <div class="row">
         <h3>die and exit functions: Vid 29</h3>
         <?php
+            //Tries to make a connection with the PDO-database. If not succesful use "or die" to kill the session
             $dbh = new PDO('mysql:host=localhost;dbname=test') or die ('Could not connect to database.');
             echo 'connected!';
 
         ?>
         </div>
         <div class="row">
-        <h3>While Loop: Vid 30</h3>
+        <h3>Basic Functions: Vid 30</h3>
+        <?php
+            //uses a function called myName to store a string containing a name to print out
+            function myName()
+            {
+                echo 'Richard';
+            }
+            echo 'My name is<br>';
+            myName();
+        ?>
+        </div>
+        <div class="row">
+        <h3>Functions with Arguments: Vid 31</h3>
+        <?php
+            //A function called "add" adds two number to gether - a function that takes in an argument and calculates
+            //variables
+            $ifuncNum1 = 10;
+            $ifuncNum2 = 50;
+            function add($funcNum1, $funcNum2)
+            {
+                
+              echo $funcNum1+$funcNum2;
+            }
+            add($ifuncNum1, $ifuncNum2);
+        ?>
+        </div>
+        <div class="row">
+        <h3>Functions with a Return Value: Vid 32</h3>
+        <?php
+            //A function that adds two numbers together and then returns the result. NOTICE that you need to echo the function for it to be displayed on the screen, otherwise the 'return' statement will store the result instead of printing it.
+           function addReturn($returnNumber1, $returnNumber2)
+            {
+               $returnResult = $returnNumber1 + $returnNumber2;
+               return $returnResult;
+            }
+            //Result will be 20100 because if first calculates 10+10, returns 20 and then adds 100 to the result. 
+            echo add(10, 10) + 100;
+            function divideReturn($returnNumber1, $returnNumber2)
+            {
+                $returnResult = $returnNumber1 / $returnNumber2;
+                return $returnResult;
+            }
+            echo '<br>';
+            $sum = divideReturn(add(10, 10), addReturn(5, 5));
+            echo $sum;
+        ?>
+        </div>
+        <div class="row">
+        <h3>Global Variables and Functions: Vid 33</h3>
+        <?php
+        //Global Variables and Functions
+        $user_ip = $_SERVER['REMOTE_ADDR'];
+        
+        //global variable
+        function echo_ip() 
+        {
+            global $user_ip;
+            $string = 'Your IP adress is:'.$user_ip;
+            echo $string;
+        } 
+            echo_ip();
+        ?>
+        </div>
+        <div class="row">
+        <h3>String Functions 1: Vid 34</h3>
+        <?php
+        //variables
+        //A string function that counts the words in a string and prints them out in an array.
+        $string = 'This is an example string.';
+        $string_word_count = str_word_count($string, 1);
+        
+        print_r ($string_word_count);
+        ?>
+        </div>
+        <div class="row">
+        <h3>String Functions 2: Vid 35</h3>
+        <?php
+        //shuffles the letters,numbers and symbols in a string variable into something random generated
+        $string = 'This is an example string.';
+        $string_shuffled = str_shuffle($string);
+        //$half = print only half the characters of the shuffled string
+        $half = substr($string_shuffled, 0, 10);
+        echo $half;
+        ?>
+        </div>
+        <div class="row">
+        <h3>String Functions 3: Vid 36</h3>
+        <?php
+        //similar_text compared two string to eachother and prints out how many % of the two strings that are identical.
+         $string_one = 'This is a really nice and awesome text. Just fucking look at it';
+         $string_two = 'This is a really nice and awesome text. Too bad I cant read.';
+
+        similar_text($string_one, $string_two, $result);
+        echo 'The similarity between is, '.$result;
+         
+        ?>
+        </div>
+        <div class="row">
+        <h3>String Functions 4: Vid 37</h3>
+        <?php
+        $string = 'This is yet another really nice and awesome string-example';
+        
+        ?>
+        </div>
+        <div class="row">
+        <h3>Introduction to Array: Vid 38</h3>
         <?php
 
         ?>
         </div>
         <div class="row">
-        <h3>While Loop: Vid 31</h3>
+        <h3>Associative Arrays: Vid 39</h3>
         <?php
 
         ?>
         </div>
         <div class="row">
-        <h3>While Loop: Vid 32</h3>
+        <h3>Multi-dimensional Arrays: Vid 40</h3>
         <?php
-
-        ?>
-        </div>
-        <div class="row">
-        <h3>While Loop: Vid 33</h3>
-        <?php
-
-        ?>
-        </div>
-        <div class="row">
-        <h3>While Loop: Vid 34</h3>
-        <?php
-
-        ?>
-        </div>
-        <div class="row">
-        <h3>While Loop: Vid 35</h3>
-        <?php
-
-        ?>
-        </div>
-        <div class="row">
-        <h3>While Loop: Vid 36</h3>
-        <?php
-
-        ?>
-        </div>
-        <div class="row">
-        <h3>While Loop: Vid 37</h3>
-        <?php
-
-        ?>
-        </div>
-        <div class="row">
-        <h3>While Loop: Vid 38</h3>
-        <?php
-
-        ?>
-        </div>
-        <div class="row">
-        <h3>While Loop: Vid 39</h3>
-        <?php
-
-        ?>
-        </div>
-        <div class="row">
-        <h3>While Loop: Vid 40</h3>
-        <?php
-
+            
         ?>
         </div>
     </div>
