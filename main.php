@@ -105,7 +105,7 @@ echo $message;
         //The switch statement will convert an int into a string depending on the case
         //Variables
             $switchNum = 2;
-            
+            $day = 'Monday';
             switch($switchNum)
             {
                 case 1:
@@ -120,13 +120,25 @@ echo $message;
                 //If there is no case to handle the input do this
                 default:
                     echo 'Number not found.';
-                    
+            }
+            echo '<br>';
+            switch($day)
+            {
+            case 'Saturday';
+            case 'Sunday';
+                    echo 'it\'s a weekend';
+            break;
+            
+                default:
+                    echo 'Not a weekend';
             }
         ?>
         </div>
         <div class="row">
-        <h3>While Loop: Vid 29</h3>
+        <h3>die and exit functions: Vid 29</h3>
         <?php
+            $dbh = new PDO('mysql:host=localhost;dbname=test') or die ('Could not connect to database.');
+            echo 'connected!';
 
         ?>
         </div>
